@@ -43,6 +43,14 @@
 
 
 /**
+ 跳转前缀
+ */
++(NSString *)routeName
+{
+    return @"llrout";
+}
+
+/**
  组件scheme跳转   子类重新 参考！！！！！！
  
  @param schemeStr scheme参数
