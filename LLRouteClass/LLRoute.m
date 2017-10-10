@@ -88,7 +88,7 @@
 /**
  解析Url
  */
--(LLModuleInfo *)getModuleInfo:(NSURL *)url{
++ (LLModuleInfo *)getModuleInfo:(NSURL *)url{
     return  [[LLModuleInfo alloc] initWithURL:url];
 }
 
@@ -153,7 +153,7 @@
             if (self.parameterDict) {
                 [newDict setValuesForKeysWithDictionary:self.parameterDict];
             }
-            LLModuleInfo *moduleInfo = [self getModuleInfo:schemeUrl];
+            LLModuleInfo *moduleInfo = [LLRoute getModuleInfo:schemeUrl];
             if (moduleInfo.parameter) {
                 [newDict setValuesForKeysWithDictionary:self.parameterDict];
             }

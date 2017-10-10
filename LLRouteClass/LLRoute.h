@@ -42,6 +42,12 @@ static NSString *const llgb_routeWithHomeBegin = @"llroute://home/begin";
  */
 + (LLRoute *)routeWithUrl:(NSURL *)url currentVC:(UIViewController *)currentVC hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed parameterDict:(NSMutableDictionary *)parameterDict;
 
+
+/**
+ 解析Url
+ */
++ (LLModuleInfo *)getModuleInfo:(NSURL *)url;
+
 @end
 
 //
