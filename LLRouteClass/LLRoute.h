@@ -10,8 +10,19 @@
 #import <UIKit/UIKit.h>
 
 #define LLROUTE_SCHEME @"llroute"
+
+
 //开始页面
-static NSString *const llgb_routeWithBegin = @"llroute://game/begin";
+static NSString *const llgb_routeWithHomeBegin = @"llroute://home/begin";
+
+
+@interface LLModuleInfo : NSObject
+@property (nonatomic,strong) NSString *moduleName; //模块名称
+@property (nonatomic,strong) NSString *page; //跳转的页面
+@property (nonatomic,strong) NSDictionary *parameter; //参数字典
+
+- (instancetype)initWithURL:(NSURL *)url;
+@end
 
 
 @interface LLRoute : NSObject
@@ -37,8 +48,7 @@ static NSString *const llgb_routeWithBegin = @"llroute://game/begin";
 ///**
 // 跳转前缀
 // */
-//+(NSString *)routeName
-//{
+//+(NSString *)routeName{
 //    return @"llrout";
 //}
 //

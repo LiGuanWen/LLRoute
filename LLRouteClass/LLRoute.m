@@ -9,12 +9,6 @@
 #import "LLRoute.h"
 #import "LLRouteManager.h"
 
-@interface LLModuleInfo : NSObject
-@property (nonatomic,strong) NSString *moduleName; //模块名称
-@property (nonatomic,strong) NSString *page; //跳转的页面
-@property (nonatomic,strong) NSDictionary *parameter; //参数字典
-@end
-
 @implementation LLModuleInfo
 
 - (instancetype)initWithURL:(NSURL *)url
@@ -40,8 +34,6 @@
 
 
 @implementation LLRoute
-
-
 /**
  跳转前缀
  */
