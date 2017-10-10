@@ -3,7 +3,7 @@
 项目之间的跳转路线  适用于项目之内 和各个模块项目之间的跳转 组件化管理项目
 
 使用方式 通过pod       
- pod 'LLRoute', :git => 'https://github.com/LiGuanWen/LLRoute.git', :branch => '1.0.0'
+ pod 'LLRoute', :git => 'https://github.com/LiGuanWen/LLRoute.git'
 导入到工程中
 
 
@@ -210,6 +210,8 @@ static NSString *const llspeed_routeWithAbout = @"llspeed://game/about";
 
 
 调用 
+
+
 //开始游戏
 - (IBAction)gameBeginAction:(id)sender {
  //方式一 （）
