@@ -155,18 +155,18 @@
                     [newDict setValuesForKeysWithDictionary:self.parameterDict];
                 }
             }
-            LLModuleInfo *moduleInfo = [LLRoute getModuleInfo:schemeUrl];
-            if (moduleInfo.parameter) {
-                if ([moduleInfo.parameter isKindOfClass:[NSDictionary class]] || [moduleInfo.parameter isKindOfClass:[NSMutableDictionary class]]) {
-                    [newDict setValuesForKeysWithDictionary:moduleInfo.parameter];
-                }
-            }
+//            LLModuleInfo *moduleInfo = [LLRoute getModuleInfo:schemeUrl];
+//            if (moduleInfo.parameter) {
+//                if ([moduleInfo.parameter isKindOfClass:[NSDictionary class]] || [moduleInfo.parameter isKindOfClass:[NSMutableDictionary class]]) {
+//                    [newDict setValuesForKeysWithDictionary:moduleInfo.parameter];
+//                }
+//            }
             [routeClass performSelector:routeSelector withObject:schemeUrl withObject:newDict];
 #pragma clang diagnostic pop
         }
     }else{
         //连接有误
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"链接地址错误" message:schemeUrl.scheme delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"链接地址错误" message:schemeUrl.absoluteString delegate:nil cancelButtonTitle:@"关闭" otherButtonTitles:nil, nil];
         [alertView show];
     }
 }

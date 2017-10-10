@@ -55,7 +55,7 @@
         if (routeName) {
             [self.routeDict setObject:routeClass forKey:routeName];
         }
-        NSLog(@"%@",[self.routeDict description]);
+        NSLog(@"注册的路径名称为 =%@  路径文件为 = %@",routeName,routeClass);
     }
 }
 @end
