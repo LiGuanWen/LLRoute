@@ -151,11 +151,15 @@
                 [newDict setObject:HIDESBOTTOMBARWHENPUSHED_NO forKey:HIDESBOTTOMBARWHENPUSHED_KEY];
             }
             if (self.parameterDict) {
-                [newDict setValuesForKeysWithDictionary:self.parameterDict];
+                if ([self.parameterDict isKindOfClass:[NSDictionary class]] || [self.parameterDict isKindOfClass:[NSMutableDictionary class]]) {
+                    [newDict setValuesForKeysWithDictionary:self.parameterDict];
+                }
             }
             LLModuleInfo *moduleInfo = [LLRoute getModuleInfo:schemeUrl];
             if (moduleInfo.parameter) {
-                [newDict setValuesForKeysWithDictionary:self.parameterDict];
+                if ([moduleInfo.parameter isKindOfClass:[NSDictionary class]] || [moduleInfo.parameter isKindOfClass:[NSMutableDictionary class]]) {
+                    [newDict setValuesForKeysWithDictionary:moduleInfo.parameter];
+                }
             }
             [routeClass performSelector:routeSelector withObject:schemeUrl withObject:newDict];
 #pragma clang diagnostic pop
