@@ -21,20 +21,6 @@ Pod::Spec.new do |s|
   s.author       = { "Lilong" => "diqidaimu@qq.com" }
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/LiGuanWen/LLRoute.git", :branch => "#{s.version}" }
-  s.source_files  = "LLRouteClass/**/*.{h,m,mm}","LLRouteClass/LLRoutePrefixHeader.pch"
-  s.resources    = "LLRouteClass/**/*.xib","LLRouteClass/**/*.bundle","LLRouteClass/**/*.xcassets"
-  s.prefix_header_file = 'LLRouteClass/LLRoutePrefixHeader.pch'    #PCH文件
-  
-  #s.vendored_frameworks = "HePaiClub/util/thirdpart/Alipay/AlipaySDK.framework"
-  #s.frameworks  = "AlipaySDK"
-  #s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/HePaiPay/HePaiPay/util/thirdpart/Alipay/' }
-  #s.frameworks = "HePaiPay/**/*.{h,m,a,framework}"
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-  # s.requires_arc = true
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  s.source_files  = "LLRouteClass/**/*.{h,m}"
 
-  #s.dependency "AFNetworking"
-  # s.dependency "LLKit", "~> 1.0.0"
-  # s.dependency "WCDB"
 end
