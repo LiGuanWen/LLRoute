@@ -39,21 +39,21 @@
  */
 +(NSString *)routeName
 {
-    return @"llrout";
+    return LLROUTE_SCHEME;
 }
 
 /**
  组件scheme跳转   子类重新 参考！！！！！！
  
- @param schemeStr scheme参数
+ @param schemeUrl schemeUrl参数
  @param dic 其他特殊参数
  */
-+ (void)routeToScheme:(NSString *)schemeStr parameter:(NSMutableDictionary *)dic{
-    UIViewController *vc = [dic objectForKey:@"currentVC"];
++ (void)routeToSchemeUrl:(NSURL *)schemeUrl parameter:(NSMutableDictionary *)dic{
+    UIViewController *vc = [dic objectForKey:CURRENT_VC_KEY];
     NSLog(@"currvc class = %@",[vc class]);
-    NSString *hidesBottomStr = [dic objectForKey:@"hidesBottom"];
+    NSString *hidesBottomStr = [dic objectForKey:HIDESBOTTOMBARWHENPUSHED_KEY];
     BOOL hidesBottom;
-    if ([hidesBottomStr isEqualToString:@"YES"]) {
+    if ([hidesBottomStr isEqualToString:HIDESBOTTOMBARWHENPUSHED_YES]) {
         hidesBottom = YES;
     }else{
         hidesBottom = NO;
@@ -78,7 +78,7 @@
     if (self) {
         self.currentVC = currentVC;
         self.linkUrl = url;
-        self.hidesBottom = yes;
+        self.hidesBottomBarWhenPushed = yes;
         self.parameterDict = parameterDict;
         [self startParsingWithUrl:url];
     }
@@ -135,7 +135,7 @@
     if ([self canOpenURL:schemeUrl]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-        SEL routeSelector = @selector(routeToScheme:parameter:);
+        SEL routeSelector = @selector(routeToSchemeUrl:parameter:);
         
 #pragma clang diagnostic pop
         if(routeClass && [routeClass respondsToSelector:routeSelector]){
@@ -143,12 +143,12 @@
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             NSMutableDictionary *newDict = [[NSMutableDictionary alloc] init];
             if (self.currentVC) {
-                [newDict setObject:self.currentVC forKey:@"currVC"];
+                [newDict setObject:self.currentVC forKey:CURRENT_VC_KEY];
             }
-            if (self.hidesBottom) {
-                [newDict setObject:@"YES" forKey:@"hidesBottom"];
+            if (self.hidesBottomBarWhenPushed) {
+                [newDict setObject:HIDESBOTTOMBARWHENPUSHED_YES forKey:HIDESBOTTOMBARWHENPUSHED_KEY];
             }else{
-                [newDict setObject:@"NO" forKey:@"hidesBottom"];
+                [newDict setObject:HIDESBOTTOMBARWHENPUSHED_NO forKey:HIDESBOTTOMBARWHENPUSHED_KEY];
             }
             if (self.parameterDict) {
                 [newDict setValuesForKeysWithDictionary:self.parameterDict];
