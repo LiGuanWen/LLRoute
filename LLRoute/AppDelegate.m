@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "FirstViewController.h"
 
+#import "LLRouteManager.h"
+#import "LLSpeedRoute.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    FirstViewController *vc = [[FirstViewController alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+    //注册路径跳转
+    [[LLRouteManager sharedManager] registerRoute:[LLSpeedRoute class]];
     return YES;
 }
 
