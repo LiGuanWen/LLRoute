@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.name         = "LLRoute"
   s.version      = "1.0.0"
-  s.summary      = "use for Lilong LLRoute module."
+  s.summary      = "路径跳转 传值  工程内跳转 多个子工程之间调整 --李龙"
   s.description  = <<-DESC
 		   use for LLRoute module.
 		   It’s awesome!!
@@ -19,8 +19,9 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/LiGuanWen/LLRoute"
   s.license      = "MIT"
   s.author       = { "Lilong" => "diqidaimu@qq.com" }
+  s.license      = { :type => "MIT", :file => "LICENSE" }
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/LiGuanWen/LLRoute.git", :branch => "#{s.version}" }
-  s.source_files  = "LLRouteClass/**/*.{h,m}"
+  s.source       = { :git => "https://github.com/LiGuanWen/LLRoute.git", :tag => s.version}
+  s.source_files = "LLRouteClass/**/*.{h,m}"
 
 end
